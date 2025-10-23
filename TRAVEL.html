@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+
+body {
+    margin: 0;
+    font-family:  Times, serif;
+    background-color: floralwhite;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    position: relative;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    background: #f8f2f2;
+    opacity: 0.9;
+    
+    color: black;
+    position: fixed;
+    top: 0;
+   
+    z-index: 1000;
+}
+
+.navbar a {
+    color: black;
+    margin: 0px 15px ;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    
+    color: #00d3ef;
+ 
+}
+
+.logo {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: 0px;
+    left: -450px;
+}
+.title-bar{
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: -15px;
+    left: 15px;
+}
+
+.lang-select a {
+    font-weight: bold;
+}
+
+.video-banner {
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.video-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.overlay:h1 {
+    color: white;
+}
+
+.video-banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.video-banner .overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+  
+    padding: 10px 20px;
+    background: gray;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #f9d423;
+    color: white;
+}
+
+.section {
+    padding: 40px 20px;
+    text-align: center;
+}
+.section1 {
+  padding: 15px 15px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.place {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.place:hover {
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+.place-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.place-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.place-info p {
+    margin: 0 0 10px 0;
+}
+
+.rating {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.section-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.find-out-more {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007BFF;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.find-out-more:hover {
+    color: #0056b3;
+}
+
+.container {
+            text-align: center;
+            padding: 20px 20px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .container h1 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #001149;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(180, 179, 179, 0.807);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .service img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .service h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .service p {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service {
+            animation: fadeIn 0.5s ease;
+        }
+
+        .extra-text {
+            margin-top: 40px;
+            font-size: 1.1em;
+            color: white;
+        }
+
+.container2 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+      
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .image-large img {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card img {
+            max-width: 50px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+    
+    footer {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        width: 100%;
+        position: relative;
+        z-index: 1000;
+    }
+    
+    .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        .footer-column1 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        .footer-column ul li a {
+            text-decoration: none;
+            color: rgb(95, 197, 95);
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: #00ff00;
+        }
+        .footer-column p {
+            padding-top: 0px;
+            margin-right: 45px;
+            padding-right: 10px;
+            text-align: left;
+            justify-content: space-between;
+            font-size: 13.5px;
+            color: #cfcfd0;
+        }
+      
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none; 
+            font-size: 18px;
+        }
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        .newsletter input {
+            padding: 10px;
+            width: calc(100% - 20px);
+            border: none;
+            outline: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .newsletter button {
+            border-radius: 5px;
+            padding: 10px 20px;
+            background-color: #00f74a;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+        }
+        .newsletter button:hover {
+            background-color: #fff;
+        }
+        .copyright {
+            background-color: #333;
+            color: #a7a7a7;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        .image1 img {
+              max-width: 300px;
+              padding-left: 50px;
+                               
+        }
+        .image1 {
+            align-items: center;
+            background-color: #333;
+            justify-content: center;
+            align-items: center;
+
+         }  
+</style>
+<body>
+    
+    <header>
+        <div class="navbar">
+            <img src="logo.png" width="100px" />
+            <a href="#" class="logo"> </a>
+                    
+            <nav>
+              
+                <a href="TRAVEL.html">Home</a>
+                <a href="destination.html">Destinations</a>
+                <a href="itenerrasies.html">Itineraries</a>
+                <a href="localfoods.html">Local Foods</a>
+                <a href="traveltips.html">Testimonials</a>
+            </nav>
+
+        </div>
+       
+        <div class="video-banner">
+            <video autoplay muted loop>
+                <source src="Welcome Back to the Philippines! - Tourism Philippines (1080p, h264, youtube).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay">
+                <h1>Welcome to Batangas Tourism and Travel Guide</h1>
+                <div class="actions">
+                    <a href="#places-to-go" class="btn">Top Tourist Spots</a>
+                    <a href="#tickets" class="btn">Tickets</a>
+                    <a href="#travel-info" class="btn">Travel Info</a>
+                    <a href="#magazine" class="btn">Places to Go</a>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+    <main>
+
+        <section id="places-to-go" class="section1">
+            <h2>TOP TOURIST SPOT</h2>
+          
+            <div class="grid">
+                
+<div class="place" style="background-image: url('beautiful-taal-lake-hiked.jpg');">
+  <div class="place-info">
+    <h3>Taal Volcano</h3>
+    <a href="https://maps.app.goo.gl/ossrbhXDSz4H434z7" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+    <p>A scenic active volcano surrounded by a lake. Perfect for hiking and nature lovers.</p>
+    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span> 
+    5/5
+    </a>
+  </div>
+</div>
+
+<div class="place" style="background-image: url('anilao.png');">
+  <div class="place-info">
+    <h3>Anilao</h3>
+    <a href="https://maps.app.goo.gl/cLmuit73Qe91BkP96" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+    <p>A paradise for divers with crystal-clear waters and vibrant marine life.</p>
+    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span><span class="star">☆</span> 
+    3/5
+    </a>
+  </div>
+</div>
+
+<div class="place" style="background-image: url('topheritage.png');">
+  <div class="place-info">
+    <h3>Heritage Site</h3>
+    <a href="https://maps.app.goo.gl/4Z4A2ZuweGiAWNHB8" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+    <p>Step back in time and explore Taal rich cultural history and architecture.</p>
+    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span> 
+  5/5
+  </a>
+  </div>
+</div>
+
+<div class="place" style="background-image: url(beaches.png);">
+  <div class="place-info">
+    <h3>Popular Beaches</h3>
+    <a href="https://maps.app.goo.gl/EYWCgqKoW27sypi77" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+    <p>Relax on stunning beaches with golden sand and clear blue waters.</p>
+    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span> 
+   4/5
+   </a>
+  </div>
+</div>
+            </div>
+            <a href="destination.html" class="find-out-more">Find out more</a>
+        </section>
+         
+         <section id="tickets" class="section">
+            <div class="container">
+                <h1>Start Your Vacation with Lots of Services!</h1>
+                <div class="services">
+                    <div class="service">
+                        <img src="icons8-ship-100.png" alt="Ship Cruises">
+                        <h3>Cultural Tours</h3>
+                        <p></p>
+                    </div>
+                    <div class="service">
+                        <img src="https://img.icons8.com/ios/50/000000/salad.png" alt="Food Tours">
+                        <h3>Food Tours</h3>
+                        <p></p>
+                    </div>
+                    <div class="service">
+                        <img src="https://img.icons8.com/ios/50/000000/sunbathe.png" alt="Summer Rest">
+                        <h3>Summer Rest</h3>
+                        <p></p>
+                    </div>
+                    <div class="service">
+                        <img src="icons8-mountain-64.png" alt="Mountains Tours">
+                        <h3>Mountains Tours</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="extra-text">
+                    <p>Explore amazing destinations and make your vacation unforgettable with these incredible services!</p>
+                </div>
+            </div>
+        
+        </section>
+        
+        <section id="magazine" class="section">
+    <h2>Explore Batangas on the Map</h2>
+    <iframe src="https://maps.google.com/maps?q=Batangas&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="400px" style="border:0;" allowfullscreen=""></iframe>
+        </section>
+              
+        <section id="travel-info" class="section">
+            <div class="container2">
+                
+                <div class="header">
+                    <h1>Why Choose Us</h1>
+                    <p>The gladdest moment in human life, me thinks, is a departure into unknown lands.</p>
+                </div>
+                       
+                <div class="content">
+                    
+                    <div class="image-large">
+                        <img src="explore.jpeg" alt="Large image of travel scene">
+                    </div>
+        
+                    <div>
+                        <div class="grid">
+                            <div class="card">
+                                <img src="icons8-earth-50.png" alt="Icon">
+                                <h3>Passionate Travel</h3>
+                                <p>Fuel your passion for adventure and discover new horizons.</p>
+                            </div>
+                            <div>
+                                <img src="try.png" alt="Small scenic image">
+                            </div>
+                            <div>
+                                <img src="birhen.png" alt="Small scenic image">
+                            </div>
+                            <div class="card">
+                                <img src="icons8-mountain-64.png" alt="Icon">
+                                <h3>Beautiful Places</h3>
+                                <p>Uncover the world’s most breathtakingly beautiful places.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+          <footer>
+            <div class="footer">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Welcome to Tourism Batangas, your ultimate travel guide to a land of unparalleled beauty and cultural richness! Explore the pristine beaches, majestic mountains, and historic landmarks that make Batangas a must-visit destination.<br> Our mission is to showcase the vibrant heritage, culinary treasures, and thrilling adventures that await you. Whether you're seeking relaxation, exploration, or inspiration, Tourism Batangas is here to guide you every step of the way. Let us help you create unforgettable memories in the heart of Batangas!</p>
+              
+                </div>
+                <div class="footer-column">
+                    <h3>Fast Link</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Destination</a></li>
+                        <li><a href="#">Itineraries</a></li>
+                        <li><a href="#">Local Foods</a></li>
+                        <li><a href="#">Testimonials</a></li>
+            
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#">Cultural Tours</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#">Food 
+                        Tours</a></li>
+               
+                        <li><a href="#">Beach Rest</a></li>
+                        <li><a href="#">Mountain Tours</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Stay updated with the latest travel tips and promotions!</p>
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div><br>
+                                          
+            </div>
+           <div class="image1">
+            <img src="logo.png">
+           </div>
+            <div class="copyright">
+                <p>© 2025 COPYRIGHT BATANGAS TOURISM & TRAVEL GUIDE. All Rights Reserved.<br>Contact Us ☎️ | Disclaimer | Privacy Notice</p>
+            </div>
+        </footer>   
+</body>
+</html

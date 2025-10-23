@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destinations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+}
+body {
+    margin: 0;
+    font-family: Times,  sans-serif;
+    color: #333;
+    background-color: floralwhite;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    position: relative;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    background: #dacfcf;
+    opacity: 0.8;
+    color: black;
+    position: fixed;
+    top: 0;
+   
+    z-index: 1000;
+}
+
+.navbar a {
+    color: black;
+    margin: 0px 15px ;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #f9d423;
+}
+
+.logo {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: 0px;
+    left: -450px;
+}
+.title-bar{
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: -15px;
+    left: 15px;
+}
+
+.lang-select a {
+    font-weight: bold;
+}
+
+.video-banner {
+    position: relative;
+    height: 45vh;
+    overflow: hidden;
+}
+
+.video-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.video-banner .overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+  
+    padding: 15px 25px;
+    background: gray;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.9s ease;
+}
+
+.btn:hover {
+    background: #f9d423;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.container h1 {
+    color: rgb(139, 0, 5);
+}
+
+
+h1 {
+    font-size: 2em;
+    color: rgb(236, 227, 227);
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2em;
+    color: rgb(183, 162, 162);
+    margin-bottom: 10px;
+}
+
+.subheading {
+    color: #777;
+    font-size: 1em;
+    margin-bottom: 40px;
+}
+
+/* Card Layout */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #f4ecec;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    font-size: 1em;
+    color: #080202;
+    background-color: rgb(240, 237, 237);
+    opacity: 0.9;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.info i {
+    color: #ff6b6b;
+}
+.info2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1px;
+    font-size: 4;
+    color: #080202;
+    background-color: rgb(240, 237, 237);
+    opacity: 0.9;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    justify-content: center ;
+    text-align: left;
+    text-size-adjust: 4;
+}
+
+.info2 i {
+    color: #ff6b6b;
+}
+.info2 p {
+    font-size: 3;
+}
+
+/* Hover Effects */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+footer {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        width: 100%;
+        position: relative;
+        z-index: 1000;
+    }
+    
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-column {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px 15px;
+        text-align: center;
+    }
+
+    .footer-column.logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+     .footer-column img {
+    
+    max-width: 500px;
+    padding-left: 700px;
+
+    }
+
+
+    .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+        color: #00ff00;
+    }
+
+    .newsletter input {
+        padding: 10px;
+        width: calc(100% - 20px);
+        border: none;
+        margin-bottom: 10px;
+        outline: none;
+        text-align: center;
+    }
+
+    .newsletter button {
+        padding: 10px 20px;
+        background-color: #00ff00;
+        border: none;
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .newsletter button:hover {
+        background-color: #fff;
+        color: #333;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #aaa;
+    }
+</style>
+<body>
+        <!-- Header Section -->
+        <header>
+            <div class="navbar">
+                <img src="logo.png" width="100px" />
+                <a href="#" class="logo"> </a>
+              
+              
+                <nav>
+                  
+                    <a href="TRAVEL.html">Home</a>
+                    <a href="destination.html">Destinations</a>
+                    <a href="itenerrasies.html">Itineraries</a>
+                    <a href="localfoods.html">Local Foods</a>
+                    <a href="#tickets">Testimonials</a>
+                </nav>
+    
+            </div>
+    
+            <!-- Video Banner -->
+            <div class="video-banner">
+                <video autoplay muted loop>
+                    <source src="Welcome Back to the Philippines! - Tourism Philippines (1080p, h264, youtube).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="overlay">
+                    <h1>Wcomeel to Batangas Tourism and Travel Guide</h1>
+                    <a href="" class="btn">Destinations</a>
+                </div>
+            </div>
+        </header>
+    <div class="container">
+        <h1>Start Your Journey</h1>
+        <p class="subheading"> Embark on an unforgettable journey through the vibrant and culturally rich province of Batangas! Discover a wide array of must-visit destinations, each offering unique experiences and breathtaking sights. From historical landmarks and majestic mountains to pristine beaches and serene pilgrimage sites, Batangas has something for everyone. Whether you're a history enthusiast, nature lover, or simply seeking a relaxing getaway, the wonders of Batangas await to enchant and inspire you.</p>
+        <div class="card-container">
+<div class="card">
+    <img src="Monte.png" alt="Montemaria International Pilgrimage and Conference Center">
+    <a href="https://maps.app.goo.gl/8xEjhg4VyRoBCXG39" class="info2" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Montemaria International Pilgrimage and Conference Center</p>
+    </a>
+</div>
+<div class="card">
+    <img src="taal.png" alt="Minor Basilica and Parish of St. Martin of Tours">
+    <a href="https://maps.app.goo.gl/4yCw7mKYVnN4qHrk7" class="info2" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Minor Basilica and Parish of St. Martin of Tours</p>
+    </a>
+</div>
+<div class="card">
+    <img src="fantasy.png" alt="Fantasy World">
+    <a href="https://maps.app.goo.gl/gvvxtKXtHvQ7x9eQ9" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Fantasy World</p>
+    </a>
+</div>
+<div class="card">
+    <img src="taalvolcano.png" alt="Taal Volcano">
+    <a href="https://maps.app.goo.gl/2YZTWEFxREYfZn9a6" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Taal Volcano</p>
+    </a>
+</div>
+<div class="card">
+    <img src="verdeiland.png" alt="Verde Island">
+    <a href="https://maps.app.goo.gl/rMs3NHizoo3h33yA7" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Verde Island</p>
+    </a>
+</div>
+<div class="card">
+    <img src="Caleruega.png" alt="Caleruega Philippines">
+    <a href="https://maps.app.goo.gl/DUfufprsYC42DCtS7" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Caleruega Philippines</p>
+    </a>
+</div>
+<div class="card">
+    <img src="MountMacolod.png" alt="Mount Macolot">
+    <a href="https://maps.app.goo.gl/NxNdnBwCumKszk2U8" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Mount Macolot</p>
+    </a>
+</div>
+<div class="card">
+    <img src="The Farm At San Benito.png" alt="The Farm At San Benito.png">
+    <a href="https://maps.app.goo.gl/sM3o9WLSF83tKMjN9" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>The Farm At San Benito.png</p>
+    </a>
+</div>
+<div class="card">
+    <img src="Bee.png" alt="Milea Bee Farm">
+    <a href="https://maps.app.goo.gl/6n4s1UDjrCRDkdbY6" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Milea Bee Farm</p>
+    </a>
+</div>
+<div class="card">
+    <img src="lipa.png" alt="Metropolitan Cathedral of San Sebastian">
+    <a href="https://maps.app.goo.gl/Qr4e1h2wCvEMx3MB8" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Metropolitan Cathedral of San Sebastian</p>
+    </a>
+</div>
+<div class="card">
+    <img src="Batulao.png" alt="Mount Batulao Peak">
+    <a href="https://maps.app.goo.gl/NxNdnBwCumKszk2U8" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Mount Batulao Peak</p>
+    </a>
+</div>
+<div class="card">
+    <img src="masasa.png" alt="Masasa Beach">
+    <a href="https://maps.app.goo.gl/gF4Xnz9yzqhG54Pt6" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Masasa Beach</p>
+    </a>
+</div>
+<div class="card">
+    <img src="Stilts.png" alt="Stilts Calatagan Beach Resort">
+    <a href="https://maps.app.goo.gl/uTi1eUqS5nBCWukNA" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Stilts Calatagan Beach Resort</p>
+    </a>
+</div>
+<div class="card">
+    <img src="St. Padre Pio.png" alt="Parish and National Shrine of St. Padre Pio">
+    <a href="https://maps.app.goo.gl/SMKfgQkPNYyt8oBd6" class="info2" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Parish and National Shrine of St. Padre Pio</p>
+    </a>
+</div>
+<div class="card">
+    <img src="grove.png" alt="The Old Grove Farmstead">
+    <a href="https://maps.app.goo.gl/5yfcj5vUAtEFwdgq5" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>The Old Grove Farmstead</p>
+    </a>
+</div>
+<div class="card">
+    <img src="Immaculate.png" alt="Minor Basilica of the Immaculate Conception">
+    <a href="https://maps.app.goo.gl/E7bdTv9RfgvaiNQm9" class="info2" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Minor Basilica of the Immaculate Conception</p>
+    </a>
+</div>
+<div class="card">
+    <img src="Fortune.png" alt="Fortune Island">
+    <a href="https://maps.app.goo.gl/Znn7RtEgDDqFWwEr7" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Fortune Island</p>
+    </a>
+</div>
+<div class="card">
+    <img src="LaVirginia.png" alt="La Virginia Leisure Park and Amusement Resort">
+    <a href="https://maps.app.goo.gl/7TDtsPBxXtDPojgn7" class="info2" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>La Virginia Leisure Park and Amusement Resort</p>
+    </a>
+</div>
+<div class="card">
+    <img src="Matabungkay.png" alt="Matabungkay Beach">
+    <a href="https://maps.app.goo.gl/5yfcj5vUAtEFwdgq5" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Matabungkay Beach</p>
+    </a>
+</div>
+<div class="card">
+    <img src="Heritage.png" alt="The Heritage Town of Taal">
+    <a href="https://maps.app.goo.gl/bjzTcfeQjL4g7b3e9" class="info" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>The Heritage Town of Taal</p>
+    </a>
+</div>
+</div><br><br> <!-- End of container or main content -->
+<footer>
+    <div class="footer-content">
+        <!-- About Us -->
+        <div class="footer-column">
+            <h3>About Us</h3>
+            <p>Welcome to Tourism Batangas, your ultimate travel guide to a land of unparalleled beauty and cultural richness! Explore the pristine beaches, majestic mountains, and historic landmarks that make Batangas a must-visit destination. Our mission is to showcase the vibrant heritage, culinary treasures, and thrilling adventures that await you. Whether you're seeking relaxation, exploration, or inspiration, Tourism Batangas is here to guide you every step of the way. Let us help you create unforgettable memories in the heart of Batangas!</p>
+            <div class="logo">
+                <img src="logo.png" alt="Tourism Batangas City Logo">
+            </div>
+        </div>
+        <!-- Fast Link -->
+        <div class="footer-column">
+            <h3>Fast Link</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Destination</a></li>
+                <li><a href="#">Itineraries</a></li>
+                <li><a href="#">Local Foods</a></li>
+                <li><a href="#">Testimonials</a></li>
+            </ul>
+        </div>
+        <!-- Services -->
+        <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+                <li><a href="#">Cultural Tours</a></li>
+                <li><a href="#">Food Tours</a></li>
+                <li><a href="#">Beach Rest</a></li>
+                <li><a href="#">Mountain Tours</a></li>
+            </ul>
+        </div>
+        <!-- Newsletter -->
+        <div class="footer-column newsletter">
+            <h3>Newsletter</h3>
+            <p>Stay updated with the latest travel tips and promotions!</p>
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 COPYRIGHT BATANGAS TOURISM & TRAVEL GUIDE. All Rights Reserved.<br>Contact Us ☎️ | Disclaimer | Privacy Notice</p>
+    </div>
+</footer>
+</div>   
+</body>
+</html>

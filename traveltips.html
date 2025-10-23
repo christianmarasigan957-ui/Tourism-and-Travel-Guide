@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batangas Food Adventure</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+body {
+    margin: 0;
+    font-family: Times,  sans-serif;
+    color: #b30000;
+    background-color: floralwhite;
+    align-items: center;
+   
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    position: relative;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    background: #f8f2f2;
+    opacity: 0.9;
+    
+    color: black;
+    position: fixed;
+    top: 0;
+   
+    z-index: 1000;
+}
+
+.navbar a {
+    color: black;
+    margin: 0px 15px ;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #f9d423;
+}
+
+.logo {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: 0px;
+    left: -450px;
+}
+.title-bar{
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: -15px;
+    left: 15px;
+}
+
+.lang-select a {
+    font-weight: bold;
+}
+
+.video-banner {
+    position: relative;
+    height: 45vh;
+    overflow: hidden;
+}
+
+.video-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.overlay:h1 {
+    color: white;
+}
+
+.video-banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.video-banner .overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+  
+    padding: 10px 20px;
+    background: gray;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #f9d423;
+    color: white;
+}
+
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 40px;
+  gap: 10px;
+}
+
+.hero-image {
+  flex: 1 1 40%;
+  padding-left: 90px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 275px;
+  border-radius: 10px;
+}
+
+.hero-description {
+  flex: 1 1 50%;
+  padding: 20px;
+}
+
+.hero-description h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero-description p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.reviews-section {
+      text-align: center;
+      padding: 50px 0;
+      background: #f4f4f4;
+    }
+
+    .reviews-section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      
+    }
+    .reviews-container h4 {
+        color: rgb(13, 59, 17);
+    }
+    .reviews-container p {
+        color: rgb(5, 3, 40);
+    }
+
+    .reviews-container {
+      display: flex;
+      justify-content: center; 
+      align-items: stretch; 
+      gap: 20px; 
+      overflow: hidden;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .review {
+      flex: 0 0 calc(33.33% - 20px); 
+      box-sizing: border-box;
+      padding: 20px;
+      background: rgb(233, 229, 227);
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .review:hover {
+      transform: scale(1.05);
+    }
+
+    .stars {
+      font-size: 1.5em;
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+
+    .reviewer {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .reviewer img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+
+    .reviewer h4 {
+      margin: 10px 0 5px;
+      font-size: 1.1em;
+    }
+
+    .reviewer p {
+      color: #000000;
+      font-family: 'Lucida Sans', monospace;
+    }
+    p {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+.container {
+   margin-left: 110px;
+    background: rgb(44, 58, 82);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(71, 69, 69, 0.444);
+    width: 1300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: center;    
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #f7f0f0;
+}
+
+.subtitle {
+    font-size: 0.9em;
+    color: #a49c9c;
+    margin-bottom: 20px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #ffa500;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.reviews {
+    font-size: 0.9em;
+    color: #ededed;
+}
+
+.button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.sort {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.sort select {
+    border: none;
+    background-color: transparent;
+    font-size: 0.8em;
+    color: #007BFF;
+    cursor: pointer;
+}
+
+footer {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        width: 100%;
+        position: relative;
+        z-index: 1000;
+        margin-top: 50px;
+    }
+    
+    .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        .footer-column1 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        .footer-column ul li a {
+            text-decoration: none;
+            color: rgb(95, 197, 95);
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: #00ff00;
+        }
+        .footer-column p {
+            padding-top: 0px;
+            margin-right: 45px;
+            padding-right: 10px;
+            text-align: left;
+            justify-content: space-between;
+            font-size: 13.5px;
+            color: #cfcfd0;
+        }
+      
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none; 
+            font-size: 18px;
+        }
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        .newsletter input {
+            padding: 10px;
+            width: calc(100% - 20px);
+            border: none;
+            outline: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .newsletter button {
+            border-radius: 5px;
+            padding: 10px 20px;
+            background-color: #00f74a;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+        }
+        .newsletter button:hover {
+            background-color: #fff;
+        }
+        .copyright {
+            background-color: #333;
+            color: #a7a7a7;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        .image1 img {
+              max-width: 300px;
+              padding-left: 50px;
+                            
+        }
+        .image1 {
+            align-items: center;
+            background-color: #333;
+            justify-content: center;
+            align-items: center;
+
+         }  
+</style>
+<body>
+  <header>
+    <div class="navbar">
+        <img src="logo.png" width="100px" />
+        <a href="#" class="logo"> </a>     
+
+        <nav>
+          
+            <a href="TRAVEL.html">Home</a>
+            <a href="destination.html">Destinations</a>
+            <a href="itenerrasies.html">Itineraries</a>
+            <a href="localfoods.html">Local Foods</a>
+            <a href="traveltips.html">Testimonials</a>
+        </nav>
+
+    </div>
+
+    <div class="video-banner">
+        <video autoplay muted loop>
+            <source src="Welcome Back to the Philippines! - Tourism Philippines (1080p, h264, youtube).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+            <h1>Tourist Reviews</h1>
+           
+        </div>
+    </div>
+</header>
+
+  <section class="reviews-section">
+  
+    <div class="container">
+        <div class="title">Batangas Tourism and Travel Guide</div>
+        <div class="subtitle">Your guide to exploring Batangas, Philippines</div>
+        <div class="rating">
+            <div class="stars">★★★★★</div>
+            <div class="reviews">5.0 | 6 reviews</div>
+        </div>
+        <a href="#" class="button">Write a Review</a>
+        <div class="sort">
+            Sort by: 
+            <select>
+                <option value="most-helpful">Most helpful</option>
+                <option value="latest">Latest</option>
+            </select>
+        </div>
+    </div>
+    <h3>______________________________________________________________________________________________________</h3>
+    <div class="reviews-container">
+      <div class="review">
+        <div class="stars">
+          ★★★★☆
+        </div>
+        <p>"Grabee! Ang ganda ng recommendations nila nag enjoy ako sa mga spots na napuntahan ko 100%"</p>
+        <div class="reviewer">
+          <img src="khat.jpg" alt="Elina De Nadapa">
+          <h4>Elina De Nadapa</h4>
+          <p>Traveler</p>
+        </div>
+      </div>
+      <div class="review">
+        <div class="stars">
+          ★★★★★
+        </div>
+        <p>My favourite childhood memory is my parents paying for my holidays.</p>
+        <div class="reviewer">
+          <img src="steve.png" alt="Steve B. Egg">
+          <h4>Steve B. Egg</h4>
+          <p>Traveler</p>
+        </div>
+      </div>
+      <div class="review">
+        <div class="stars">
+          ★★★★☆
+        </div>
+        <p>I want someone to look at me the way I look at a travel brochure</p>
+        <div class="reviewer">
+          <img src="elyn.png" alt="Malaci Anne Dedy">
+          <h4>Malaci Anne Dedy</h4>
+          <p>Traveler</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer">
+        <div class="footer-column">
+            <h3>About Us</h3>
+            <p>Welcome to Tourism Batangas, your ultimate travel guide to a land of unparalleled beauty and cultural richness! Explore the pristine beaches, majestic mountains, and historic landmarks that make Batangas a must-visit destination.<br> Our mission is to showcase the vibrant heritage, culinary treasures, and thrilling adventures that await you. Whether you're seeking relaxation, exploration, or inspiration, Tourism Batangas is here to guide you every step of the way. Let us help you create unforgettable memories in the heart of Batangas!</p>
+      
+        </div>
+        <div class="footer-column">
+            <h3>Fast Link</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Destination</a></li>
+                <li><a href="#">Itineraries</a></li>
+                <li><a href="#">Local Foods</a></li>
+                <li><a href="#">Testimonials</a></li>
+    
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#">Cultural Tours</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#">Food 
+                Tours</a></li>
+       
+                <li><a href="#">Beach Rest</a></li>
+                <li><a href="#">Mountain Tours</a></li>
+            </ul>
+        </div>
+        <div class="footer-column newsletter">
+            <h3>Newsletter</h3>
+            <p>Stay updated with the latest travel tips and promotions!</p>
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </div><br>       
+             
+    </div>
+   <div class="image1">
+    <img src="logo.png">
+   </div>
+    <div class="copyright">
+        <p>© 2025 COPYRIGHT BATANGAS TOURISM & TRAVEL GUIDE. All Rights Reserved.<br>Contact Us ☎️ | Disclaimer | Privacy Notice</p>
+    </div>
+</footer>
+</body>
+</html>

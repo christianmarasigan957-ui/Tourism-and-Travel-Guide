@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batangas Food Adventure</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+body {
+    margin: 0;
+    font-family: Times,  sans-serif;
+    color: #333;
+    background-color: floralwhite;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    position: relative;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    background: #f8f2f2;
+    opacity: 0.9;
+    
+    color: black;
+    position: fixed;
+    top: 0;
+   
+    z-index: 1000;
+}
+
+.navbar a {
+    color: black;
+    margin: 0px 15px ;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #f9d423;
+}
+
+.logo {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: 0px;
+    left: -450px;
+}
+.title-bar{
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: -15px;
+    left: 15px;
+}
+
+.lang-select a {
+    font-weight: bold;
+}
+
+.video-banner {
+    position: relative;
+    height: 45vh;
+    overflow: hidden;
+}
+
+.video-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.overlay:h1 {
+    color: white;
+}
+
+.video-banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.video-banner .overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+  
+    padding: 10px 20px;
+    background: gray;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #f9d423;
+    color: white;
+}
+
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 40px;
+  gap: 10px;
+}
+
+.hero-image {
+  flex: 1 1 40%;
+  padding-left: 90px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 275px;
+  border-radius: 10px;
+}
+
+.hero-description {
+  flex: 1 1 50%;
+  padding: 20px;
+}
+
+.hero-description h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero-description p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.card-section {
+  display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;  
+    
+}
+
+.card {
+  background-color: #f4ecec;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+    position: relative;
+}
+
+.card img {
+  width: 100%;
+    height: 200px;
+    object-fit: cover;
+  
+  display: block;
+  border-radius: 10px;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card-overlay h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+}
+
+.card-overlay p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-overlay {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+footer {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        width: 100%;
+        position: relative;
+        z-index: 1000;
+        margin-top: 100px;
+    }
+    
+    .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        .footer-column1 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        .footer-column ul li a {
+            text-decoration: none;
+            color: rgb(95, 197, 95);
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: #00ff00;
+        }
+        .footer-column p {
+            padding-top: 0px;
+            margin-right: 45px;
+            padding-right: 10px;
+            text-align: left;
+            justify-content: space-between;
+            font-size: 13.5px;
+            color: #cfcfd0;
+        }
+      
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none; 
+            font-size: 18px;
+        }
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        .newsletter input {
+            padding: 10px;
+            width: calc(100% - 20px);
+            border: none;
+            outline: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .newsletter button {
+            border-radius: 5px;
+            padding: 10px 20px;
+            background-color: #00f74a;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+        }
+        .newsletter button:hover {
+            background-color: #fff;
+        }
+        .copyright {
+            background-color: #333;
+            color: #a7a7a7;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        .image1 img {
+              max-width: 300px;
+              padding-left: 50px;
+                               
+        }
+        .image1 {
+            align-items: center;
+            background-color: #333;
+            justify-content: center;
+            align-items: center;
+
+         }  
+</style>
+<body>
+  <header>
+    <div class="navbar">
+        <img src="logo.png" width="100px" />
+        <a href="#" class="logo"> </a>
+            
+        <nav>
+          
+            <a href="TRAVEL.html">Home</a>
+            <a href="destination.html">Destinations</a>
+            <a href="itenerrasies.html">Itineraries</a>
+            <a href="localfoods.html">Local Foods</a>
+            <a href="traveltips.html">Testimonials</a>
+        </nav>
+
+    </div>
+
+    <div class="video-banner">
+        <video autoplay muted loop>
+            <source src="Welcome Back to the Philippines! - Tourism Philippines (1080p, h264, youtube).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+            <h1>Famous Delicacies in Batangas</h1>
+           
+        </div>
+    </div>
+</header>
+ 
+<section class="hero-section">
+    <div class="hero-image">
+      <img src="bfoods.png" alt="River Rafting">
+    </div>
+    <div class="hero-description">
+      <h1>Explore Batangas Cuisine</h1>
+      <p>
+        Discover the rich and flavorful dishes of Batangas. From hearty Bulalo to savory Lomi, each dish is a celebration of culture and tradition. Embark on a culinary journey and savor every bite.
+      </p>
+      <p>Batangas offers a wide variety of exciting activities and alongside this, it's also a good idea to sample some of the local delicacies and cuisine. Batangas, a coastal province that is home to several rivers and lakes, is known for its abundance of fresh seafood and freshwater fish, as well as the production of high-quality Batangas beef.</p>
+   <p>As a result of these abundant resources, Batangueno cuisine is so diversified that it is impossible to put it into a single term. Batangas recipes, like those in the provinces the can be found in Southern Tagalog region, are often based on soup, either thick and hearty like lomi or thin and brothy like bulalo. But in addition to that, they are also partial to fried, grilled, and smoked foods. As it happens, 
+    they all have one thing in common: all of these dishes can be regarded as basic, uncomplicated, and remarkably easy to make.</p>
+    </div>
+  </section>
+ 
+  <section class="card-section">
+    <div class="card">
+      <img src="Bulalo.png" alt="Batangas Bulalo">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/GuPtxTdGrQXRve6H8" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Batangas Bulalo</h3>
+        <p>The Heartwarming Beef Soup</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="lomi.png" alt="Batangas Lomi">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/RGxYNZmZFVmhBCscA" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Batangas Lomi</h3>
+        <p>Thick Noodles with a Flavorful Twist</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="sumannimarcia.png" alt="Suman">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/SGuVSK3N9MzTbfDZ8" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Suman</h3>
+        <p>The favorite sticky rice</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="tapa.png" alt="Tapang Taal">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/5WnHLqAh3MqHMit37" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Tapang Taal</h3>
+        <p>pork marinated in soy sauce, calamansi and tons of garlic then pan fried.</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="kape.png" alt="Batangas Goto">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/3oF9xjAy3sMKztXD9" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Kapeng Barako</h3>
+        <p>The Bold Brew of Batangas</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="goto.png" alt="Batangas Goto">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/UcT92jrYxyLmJEtHA" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Batangas Goto</h3>
+        <p>The rice porridge with ox tripe</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="adobosadilaw.png" alt="Adobo sa Dilaw">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/aKC64Jm1hStcQqGd7" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Adobo sa Dilaw</h3>
+        <p> The pork adobo version that does not use soy sauce</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="sinaingnatulingan.png" alt="Sinaing na Tulingan">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/YxF9Ux4c5pHREFEVA" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Sinaing na Tulingan</h3>
+        <p>A popular delicacy made of bullet tuna, cooked low and slow in clay pot</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="nilupak.png" alt="Nilupak">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/HQKu5wim3SiSriQF6" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Nilupak</h3>
+        <p>Mashed or pounded starchy foods mixed with coconut milk (or condensed milk and butter) and sugar</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="tawilis.png" alt="Tawilis">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/hUmG9gGiU7Es9QsX8" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Tawilis</h3>
+        <p>The tawilis (Sardinella tawilis) is a freshwater sardine found exclusively in the Philippines</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="tilapia.png" alt="Tilapia">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/aKC64Jm1hStcQqGd7" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Tilapia</h3>
+        <p> The pork adobo version that does not use soy sauce</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="kalamay.png" alt="Kalamay-Kapit">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/YxF9Ux4c5pHREFEVA" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Kalamay-Kapit</h3>
+        <p>A sticky rice-based dessert made with coconut milk, brown sugar, and glutinous rice, often paired with latik.</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="bilobilo.png" alt="Pinindot (Ginataang Bilo-Bilo)">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/hUmG9gGiU7Es9QsX8" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Pinindot (Ginataang Bilo-Bilo)</h3>
+        <p>A warm dessert made with glutinous rice balls, coconut milk, and fruits like jackfruit and bananas, often served with tapioca pearls.</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="puso.png" alt="Ginataang Puso ng Saging">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/aKC64Jm1hStcQqGd7" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Ginataang Puso ng Saging</h3>
+        <p>A dish made with banana blossoms cooked in coconut milk, often paired with fish or as a side dish</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="saging.png" alt="Kinaldo (Sweetened Bananas)">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/YxF9Ux4c5pHREFEVA" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Kinaldo (Sweetened Bananas)</h3>
+        <p>Saba bananas cooked in sweetened coconut milk, a simple but delicious snack or dessert</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="kiping.png" alt=" Kiping">
+      <div class="card-overlay">
+        <a href="https://maps.app.goo.gl/YxF9Ux4c5pHREFEVA" class="info2" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        <h3>Kiping</h3>
+        <p>A colorful, wafer-thin rice delicacy often served during festivals in Batangas</p>
+        </a>
+      </div>
+    </div>
+    
+    <footer>
+      <div class="footer">
+          <div class="footer-column">
+              <h3>About Us</h3>
+              <p>Welcome to Tourism Batangas, your ultimate travel guide to a land of unparalleled beauty and cultural richness! Explore the pristine beaches, majestic mountains, and historic landmarks that make Batangas a must-visit destination.<br> Our mission is to showcase the vibrant heritage, culinary treasures, and thrilling adventures that await you. Whether you're seeking relaxation, exploration, or inspiration, Tourism Batangas is here to guide you every step of the way. Let us help you create unforgettable memories in the heart of Batangas!</p>
+        
+          </div>
+          <div class="footer-column">
+              <h3>Fast Link</h3>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Destination</a></li>
+                  <li><a href="#">Itineraries</a></li>
+                  <li><a href="#">Local Foods</a></li>
+                  <li><a href="#">Testimonials</a></li>
+      
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h3>Services</h3>
+              <ul>
+                  <li><a href="#"></a></li>
+                  <li><a href="#">Cultural Tours</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#">Food 
+                  Tours</a></li>
+         
+                  <li><a href="#">Beach Rest</a></li>
+                  <li><a href="#">Mountain Tours</a></li>
+              </ul>
+          </div>
+          <div class="footer-column newsletter">
+              <h3>Newsletter</h3>
+              <p>Stay updated with the latest travel tips and promotions!</p>
+              <input type="email" placeholder="Enter your email">
+              <button>Subscribe</button>
+          </div><br>
+                          
+      </div>
+     <div class="image1">
+      <img src="logo.png">
+     </div>
+      <div class="copyright">
+          <p>© 2025 COPYRIGHT BATANGAS TOURISM & TRAVEL GUIDE. All Rights Reserved.<br>Contact Us ☎️ | Disclaimer | Privacy Notice</p>
+      </div>
+  </footer>
+</body>
+</html>

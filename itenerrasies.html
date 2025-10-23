@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      
+        body {
+    margin: 0;
+    font-family: Times,  sans-serif;
+    color: #333;
+    background-color: floralwhite;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    position: relative;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    background: #f8f4f4;
+    opacity: 0.8;
+    color: black;
+    position: fixed;
+    top: 0;
+   
+    z-index: 1000;
+}
+
+.navbar a {
+    color: black;
+    margin: 0px 15px ;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #f9d423;
+}
+
+.logo {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: 0px;
+    left: -450px;
+}
+.title-bar{
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: -15px;
+    left: 15px;
+}
+
+.lang-select a {
+    font-weight: bold;
+}
+
+.video-banner {
+    position: relative;
+    height: 45vh;
+    overflow: hidden;
+}
+
+.video-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.video-banner .overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+  
+    padding: 10px 20px;
+    background: gray;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #f9d423;
+    color: white;
+}
+
+        .container {           
+            margin: auto;
+            padding: 100px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+          
+            
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }       
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: #f4f4f4;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .info-box h4 {
+            margin: 0 0 10px;
+            font-size: 0.9rem;
+            color: #004080;
+            text-transform: uppercase;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .day-section {
+            margin-bottom: 20px;           
+        }
+        .day-header {
+           
+           background: #0e263e;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .day-content {
+           
+            background-image: url('Nasugboback.png');
+            background-size:cover ;
+           background-position: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+           
+        }
+      
+        .day-content img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        }
+        .day-content img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .day-content p {
+        
+            padding-top: 5px;
+            padding-bottom: 5px;
+           color: #e6e7f1;
+           text-align: justify;
+        }
+        .day-content2 {
+           
+           background-image: url('taalback.png');
+           background-size:cover ;
+          background-position: center;
+           padding: 20px;
+           border: 1px solid #ddd;
+           border-radius: 5px;
+           margin-top: 10px;
+           text-align: center;
+        }  
+        .day-content2 img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        }
+        .day-content2 img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+            .day-content2 p {
+        
+        padding-top: 5px;
+        padding-bottom: 5px;
+       color: #e6e7f1;
+       text-align: justify;    
+        }
+        .day-content3 {
+           
+           background-image: url('anilaobackground.png');
+           background-size:cover ;
+          background-position: center;
+           padding: 20px;
+           border: 1px solid #ddd;
+           border-radius: 5px;
+           margin-top: 10px;
+           text-align: center;
+          
+       }
+     
+       .day-content3 img {
+           width: 200px;
+           height: 150px;
+           object-fit: cover;
+           margin: 10px;
+           border-radius: 10px;
+           transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+       }
+       .day-content3 img:hover {
+           transform: scale(1.1);
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+       }
+
+       .day-content3 p {
+       
+           padding-top: 5px;
+           padding-bottom: 5px;
+          color: #e6e7f1;
+          text-align: justify;
+       }
+       
+       footer {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        width: 100%;
+        position: relative;
+        z-index: 1000;
+        margin-top: 100px;
+        margin: 0;
+    }
+    
+    .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        .footer-column1 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        .footer-column ul li a {
+            text-decoration: none;
+            color: rgb(95, 197, 95);
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: #00ff00;
+        }
+        .footer-column p {
+            padding-top: 0px;
+            margin-right: 45px;
+            padding-right: 10px;
+            text-align: left;
+            justify-content: space-between;
+            font-size: 13.5px;
+            color: #cfcfd0;
+                        
+        }
+      
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none; 
+            font-size: 18px;
+        }
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        .newsletter input {
+            padding: 10px;
+            width: calc(100% - 20px);
+            border: none;
+            outline: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .newsletter button {
+            border-radius: 5px;
+            padding: 10px 20px;
+            background-color: #00f74a;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+        }
+        .newsletter button:hover {
+            background-color: #fff;
+        }
+        .copyright {
+            background-color: #333;
+            color: #a7a7a7;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        .image1 img {
+              max-width: 300px;
+              padding-left: 50px;
+        
+           
+            
+        }
+        .image1 {
+            align-items: center;
+            background-color: #333;
+            justify-content: center;
+            align-items: center;
+
+         }  
+        
+        
+    </style>
+</head>
+<body>
+       
+        <header>
+            <div class="navbar">
+                <img src="logo.png" width="100px" />
+                <a href="#" class="logo"></a>
+                            
+                <nav>
+                  
+                    <a href="TRAVEL.html">Home</a>
+                    <a href="destination.html">Destinations</a>
+                    <a href="itenerrasies.html">Itineraries</a>
+                    <a href="localfoods.html">Local Foods</a>
+                    <a href="traveltips.html">Testimonials</a>
+                </nav>
+    
+            </div>
+    <div class="video-banner">
+        <video autoplay muted loop>
+            <source src="Welcome Back to the Philippines! - Tourism Philippines (1080p, h264, youtube).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+            <h1>Itineraries</h1>
+          <h2>a planned schedule of activities and events for a trip</h2>
+        </div>
+    </div>
+
+    <div class="container">
+       
+        <div class="header">
+            <h1>Travel Itinerary</h1>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <h4>Destination</h4>
+                <p>Batangas City, Taal Heritage Town, Nasugbu</p>
+                
+            </div>
+            <div class="info-box">
+                <h4>Duration of Stay</h4>
+                <p>3 Days, 2 Nights</p>
+            </div>
+            <div class="info-box">
+                <h4>TRANSPORTATION</h4>
+                <p>Bus, Car Rental, Ferry </p>
+            </div>
+            <div class="info-box">
+                <h4>ACTIVITIES</h4>
+                <p>Beach Hopping, Scuba Diving, Cultural Tours</p>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header">
+                <h3>Day 01</h3>
+                <p>BEACH ADVENTURE</p>
+            </div>
+            <div class="day-content">
+                <p><strong>What to do:</strong>  Visit Nasugbu beaches and enjoy water sports.</p>
+                <p><strong>Budget:</strong> ₱2,500</p>
+               
+                <img src="nasugbuwelcome.png">
+                <img src="watersports.png">
+                <img src="nasugbubanana.png">
+                <img src="nasugbubeach.png">
+                <p>Experience the tranquility of seaside serenity at Canyon Cove Hotel and Spa, a gem nestled in the picturesque municipality of Nasugbu, Batangas. Just a two-hour journey from Metro Manila, The resort serves as sanctuary from the hustle of city life, offering exquisite views of the West Philippine Sea and a breathtaking stretch of fine white sand. <br>The distinctive features include a safeguarding breakwater, Batangas’ largest recreational swimming pool, and a myriad of exhilarating water activities. Embrace an eco-friendly escapade filled with outstanding hospitality,
+                     where each stay promises unforgettable memories and experiences to cherish.</p>
+                           
+            </div>
+        </div>
+       
+        <div class="day-section">
+            <div class="day-header">
+                <h3>Day 02</h3>
+                <p>CULTURAL EXPLORATION</p>
+            </div>
+            <div class="day-content2">
+                <p><strong>What to do:</strong> Explore Taal Heritage Town.</p>
+                <p><strong>Budget:</strong> ₱1,800</p>
+                <img src="taalhouse.png">
+                <img src="taal.png">
+                <img src="taalwelcome.png">
+                <img src="taalpublicmarket.png">
+                <img src="taalwelcome.png">
+                
+                <p>Taal is a municipality of old people in Batangas. The old downtown (Poblacion) is noted for its Spanish colonial architecture, and is designated as a National Historical Landmark by the Philippine government.
+                    Being about a two-hour drive from Metro Manila, Taal is an easy getaway from the concrete jungle and chaos there, a much closer alternative to the better-known heritage town Vigan. There are many tourist-oriented businesses; you may find a heritage house with a cafe or a bed and breakfast in it. Even the 7-Eleven store near the basilica is built in colonial-style architecture to blend with the surroundings.
+                   <br> Taal is just across a small river from the larger town of Lemery. Most of Taal, including the downtown, is inland on higher ground to the southeast, but Butong barangay is along the coast south of Lemery.
+                </p>
+            </div>
+        </div>
+        
+        <div class="day-section">
+            <div class="day-header">
+                <h3>Day 03</h3>
+                <p>DIVING AND FAREWELL</p>
+            </div>
+            <div class="day-content3">
+                <p><strong>What to do:</strong> Scuba diving in Anilao.</p>
+                <p><strong>Budget:</strong> ₱3,000</p>
+                <img src="anilao.png">
+                <img src="anilaodiving.png">
+                <img src="anilaoreefs.png">
+                <img src="anilaoboat.png">
+                <p>Anilao is a barangay (small administrative district) in the municipality of Mabini, Batangas, that is dubbed as the birthplace of scuba diving in the Philippines. It sits about 90 KM from Manila City, which makes it one of the most popular quick weekend getaways for tourists,
+                     especially diving enthusiasts, due to its vibrant underwater scenery.<br>Many experienced divers call it a paradise for underwater macro photography as well as a treasure trove for colorful and unique nudibranch species. There are more than 20 known dive sites in Anilao, including The Cathedral, Arthur’s Rock, Twin Rocks, Ligpo Island, Koala, Bethlehem, Beatrice Rock, Devil’s Point, Layag-Layag, and Kirby’s Rock, among others.</p>
+
+            </div>
+        </div>
+        </div>
+        <footer>
+            <div class="footer">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Welcome to Tourism Batangas, your ultimate travel guide to a land of unparalleled beauty and cultural richness! Explore the pristine beaches, majestic mountains, and historic landmarks that make Batangas a must-visit destination.<br> Our mission is to showcase the vibrant heritage, culinary treasures, and thrilling adventures that await you. Whether you're seeking relaxation, exploration, or inspiration, Tourism Batangas is here to guide you every step of the way. Let us help you create unforgettable memories in the heart of Batangas!</p>
+              
+                </div>
+                <div class="footer-column">
+                    <h3>Fast Link</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Destination</a></li>
+                        <li><a href="#">Itineraries</a></li>
+                        <li><a href="#">Local Foods</a></li>
+                        <li><a href="#">Testimonials</a></li>
+            
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#">Cultural Tours</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#">Food 
+                        Tours</a></li>
+               
+                        <li><a href="#">Beach Rest</a></li>
+                        <li><a href="#">Mountain Tours</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Stay updated with the latest travel tips and promotions!</p>
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div><br>                                        
+            </div>
+           <div class="image1">
+            <img src="logo.png">
+           </div>
+            <div class="copyright">
+                <p>© 2025 COPYRIGHT BATANGAS TOURISM & TRAVEL GUIDE. All Rights Reserved.<br>Contact Us ☎️ | Disclaimer | Privacy Notice</p>
+            </div>
+        </footer>                
+</body>
+</html>
